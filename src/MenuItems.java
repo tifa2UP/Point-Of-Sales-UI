@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class MenuItems {
     private ArrayList<Item> menuItems;
 
-    public MenuItems(int numberOfItems){
+    public MenuItems(){
         menuItems = new ArrayList<>();
     }
 
