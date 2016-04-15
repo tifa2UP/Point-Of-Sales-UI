@@ -18,4 +18,7 @@ public class MenuItems {
         return menuItems.size();
     }
 
+    public ArrayList<Item> getMenuItems(){
+        return menuItems;
+    }
 }

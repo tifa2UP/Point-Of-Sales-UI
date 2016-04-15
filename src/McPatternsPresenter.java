@@ -1,6 +1,6 @@
 class McPatternsPresenter {
         //This is the class that will handle the model <-> UI communication.
-        MenuModel model;
+        Order model;
         McPatternsGUI view;
 
         void loadMenuItems() {
