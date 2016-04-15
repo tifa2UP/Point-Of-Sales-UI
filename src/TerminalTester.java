@@ -9,13 +9,14 @@ public class TerminalTester {
         itemsList.addItem(tea);
         itemsList.addItem(coffee);
 
-        Order order = new Order(itemsList);
+        Order order = Order.getInstance();
+        order.createOrder(itemsList);
         order.addItemToOrder(tea);
         order.addItemToOrder(coffee);
         order.addItemToOrder(coffee);
         order.addItemToOrder(coffee);
         order.addItemToOrder(coffee);
-//        System.out.println(order.computePrice());
+        System.out.println(order.computePrice());
     }
 
 
