@@ -3,6 +3,9 @@
  */
 public class CreditCardFactory {
 
+    public CreditCardFactory() {
+    }
+
     public CreditCard getCreditCard(long cardNumber){
         String cardNumberString = cardNumber + "";
         if (cardNumberString.length() < 2){

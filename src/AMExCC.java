@@ -5,6 +5,6 @@ public class AMExCC implements CreditCard {
 
     @Override
     public void swipe() {
-
+        System.out.println("Swiped an American Express card!");
     }
 }

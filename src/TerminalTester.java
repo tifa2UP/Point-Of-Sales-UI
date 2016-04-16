@@ -19,6 +19,7 @@ public class TerminalTester {
         System.out.println(order.computePrice());
     }
 
-
+    CreditCardFactory test = new CreditCardFactory();
+    
 
 }

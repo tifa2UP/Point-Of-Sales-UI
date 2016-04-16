@@ -4,6 +4,6 @@
 public class MasterCC implements CreditCard {
     @Override
     public void swipe() {
-
+        System.out.println("Swiped a Master Card!");
     }
 }
