@@ -43,4 +43,16 @@ class Order {
 //        System.out.println(price);
         return price;
     }
+
+    public void clearOrder(){
+        Iterator it = currentOrder.entrySet().iterator();
+        while (it.hasNext()) {
+            HashMap.Entry pair = (Map.Entry) it.next();
+            currentOrder.put((Item) pair.getKey(), 0);
+        }
+        }
+
+    public boolean checkoutOrder(){
+        return false;
+    }
 }
