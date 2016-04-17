@@ -46,20 +46,29 @@ class McPatternsGUI extends JFrame {
         JButton confirm = new JButton("Checkout");
         confirm.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //TODO: Add the function to handle confirmed order
-                presenter.checkout();
+
                 //Think about where you will store order and who should manipulate.
                 //Handle the Payment validation before confirming order. Who should validate?
-                orderDetails.setText("the total for your order is $" + order.computePrice() + " ");
+                JTextField CCNumber = new JTextField();
+                final JComponent[] inputs = new JComponent[] {
+                        new JLabel("Enter the Credit Card number"),
+                        CCNumber,
+                };
+                JOptionPane.showMessageDialog(null, inputs, "My custom dialog", JOptionPane.PLAIN_MESSAGE);
+
+                JOptionPane.showMessageDialog(null, presenter.checkout(CCNumber.getText()));
+                ccEntry.setText(presenter.getDisplayFormat());
+
+
+
             }
 
         });
         JButton cancel = new JButton("Cancel Order");
         cancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //TODO: Add the function to handle cancel order
-                //Think about where you will store order and who should manipulate.
-                orderDetails.setText("Order cancelled");
+                presenter.cancelOrder();
+                ccEntry.setText(presenter.getDisplayFormat());
             }
 
         });

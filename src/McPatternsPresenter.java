@@ -1,8 +1,14 @@
+import com.sun.deploy.util.StringUtils;
+
+import javax.print.attribute.standard.NumberUp;
+import javax.print.attribute.standard.PageRanges;
 import java.io.FileInputStream;
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
+
 
 class McPatternsPresenter {
         //This is the class that will handle the model <-> UI communication.
@@ -57,18 +63,48 @@ class McPatternsPresenter {
                 output += (pair.getValue() + "\n");
             }
             output += "===\n";
-            output += "Enter CC number: \n";
+            output += "Order Total: $" + order.computePrice() + "\n";
             System.out.println(output);
             return output;
         }
 
-    public void checkout(){
-        System.out.println("checked out!");
+    public String checkout(String s){
+        String checkoutMessage = "";
+      if (isNumeric(s)){
+          if (order.checkoutOrder(s)){
+              checkoutMessage += "Checkout is successful!";
+              order.clearOrder();
+          }
+          else{
+              checkoutMessage += "Sorry, we do not support your Credit Card";
+          }
+          return checkoutMessage;
+      }
+        else {
+          return checkoutMessage += "Please Enter a NUMBER";
+      }
+
     }
 
     public void addItem(String s) throws Exception{
         order.addItemToOrder(s);
 
+    }
+
+    public boolean isNumeric(String str)
+    {
+        try
+        {
+            double d = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
+    }
+    public void cancelOrder(){
+        order.clearOrder();
     }
         }
 

@@ -1,6 +1,7 @@
 
+import java.math.BigInteger;
 import java.util.*;
-import java.util.concurrent.ExecutionException;
+
 
 class Order {
     private static Order instance = new Order();
@@ -82,8 +83,17 @@ class Order {
         }
         }
 
-    public boolean checkoutOrder(){
-        return false;
+    public boolean checkoutOrder(String cardNumber){
+        BigInteger creditCardNumber = new BigInteger(cardNumber);
+        CreditCard card = CreditCardFactory.getCreditCard(creditCardNumber);
+        if (card == null){
+            return false;
+        }
+        else{
+            card.swipe();
+            return true;
+        }
+
     }
 
     public Item[] getItems(){
