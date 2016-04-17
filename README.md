@@ -34,9 +34,11 @@
     <li>The input file should be formatted in the following way:
     Item name | Price (without the dollar sign) followed by a new line <br>
     For example:<br>
+    <br>
         Royale with cheese|3.99 <br>
         Le Big Mac|4.99 <br>
         Milkshake|5.00</li>
+        <br>
     <li>The type of the credit card swiped and it's info is available at the terminal, in addition to the order status</li>
     <li>Only 3 Credit Card types are currently supported: Visa, American Express and MasterCard</li>
 </ul>
