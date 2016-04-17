@@ -1,9 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+
 
 class McPatternsGUI extends JFrame {
     McPatternsPresenter presenter;
@@ -33,7 +31,12 @@ class McPatternsGUI extends JFrame {
         JLabel orderDetails = new JLabel("Your order");
         orderPane.setBorder(BorderFactory.createRaisedBevelBorder());
         orderPane.add(orderDetails);
-        JTextField ccEntry = new JTextField("Enter CC #");
+
+//        JTextField ccEntry = new JTextField("Enter CC #");
+        JTextArea ccEntry = new JTextArea(presenter.getDisplayFormat());
+
+
+        JTextField orderDetail = new JTextField("no orders");
 
         JButton confirm = new JButton("Place Order");
         confirm.addActionListener(new ActionListener() {
@@ -54,8 +57,7 @@ class McPatternsGUI extends JFrame {
             }
 
         });
-
-
+        
         orderPane.add(ccEntry);
         orderPane.add(confirm);
         orderPane.add(cancel);

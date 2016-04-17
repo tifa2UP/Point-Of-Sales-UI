@@ -1,4 +1,7 @@
 import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
 
 class McPatternsPresenter {
@@ -11,7 +14,6 @@ class McPatternsPresenter {
     }
 
     void loadMenuItems() {
-        // TODO: Add code to read a file and load the menu items.
             MenuItems itemsList = new MenuItems();
             FileInputStream in = null;
 
@@ -39,7 +41,25 @@ class McPatternsPresenter {
         // Add functions to return the menu items.
 
         public McPatternsPresenter(){
-            loadMenuItems();
+        loadMenuItems();
+        }
+
+        public String getDisplayFormat(){
+            String output = "";
+            HashMap orderMap = order.getCurrentOrder();
+            Iterator it = orderMap.entrySet().iterator();
+            while (it.hasNext()) {
+                HashMap.Entry pair = (Map.Entry) it.next();
+//                items[itemIndex] = (Item) pair.getKey();
+//                itemIndex++;
+                output += ((Item) pair.getKey()).getName();
+                output += " x ";
+                output += (pair.getValue() + "\n");
+            }
+            output += "===\n";
+            output += "Enter CC number: \n";
+            System.out.println(output);
+            return output;
         }
         }
 
