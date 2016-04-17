@@ -1,5 +1,4 @@
 
-
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 
@@ -28,6 +27,22 @@ class Order {
             throw e;
         }
         currentOrder.put(item, currentOrder.get(item)+ 1);
+    }
+
+    public void addItemToOrder(String itemName) throws Exception{
+        Iterator it = currentOrder.entrySet().iterator();
+        Item item = null;
+        while (it.hasNext()){
+            HashMap.Entry pair = (Map.Entry) it.next();
+            if (((Item) pair.getKey()).getName() == itemName){
+                item = (Item) pair.getKey();
+                break;
+            }
+//            Item item = (Item) pair.getKey();
+//            int itemPrice = (int) pair.getValue();
+//            price += (item.getPrice())*(itemPrice);
+        }
+       addItemToOrder(item);
     }
 
 

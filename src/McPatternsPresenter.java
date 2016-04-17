@@ -61,5 +61,14 @@ class McPatternsPresenter {
             System.out.println(output);
             return output;
         }
+
+    public void checkout(){
+        System.out.println("checked out!");
+    }
+
+    public void addItem(String s) throws Exception{
+        order.addItemToOrder(s);
+
+    }
         }
 

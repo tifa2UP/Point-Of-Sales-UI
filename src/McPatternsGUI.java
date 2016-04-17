@@ -1,9 +1,14 @@
 import javax.swing.*;
+import javax.swing.tree.ExpandVetoException;
 import java.awt.*;
 import java.awt.event.*;
 
 
 class McPatternsGUI extends JFrame {
+    public McPatternsPresenter getPresenter() {
+        return presenter;
+    }
+
     McPatternsPresenter presenter;
     Order order;
 
@@ -38,13 +43,14 @@ class McPatternsGUI extends JFrame {
 
         JTextField orderDetail = new JTextField("no orders");
 
-        JButton confirm = new JButton("Place Order");
+        JButton confirm = new JButton("Checkout");
         confirm.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 //TODO: Add the function to handle confirmed order
+                presenter.checkout();
                 //Think about where you will store order and who should manipulate.
                 //Handle the Payment validation before confirming order. Who should validate?
-                orderDetails.setText("Order confrimed for " + ccEntry.getText());
+                orderDetails.setText("the total for your order is $" + order.computePrice() + " ");
             }
 
         });
@@ -57,7 +63,7 @@ class McPatternsGUI extends JFrame {
             }
 
         });
-        
+
         orderPane.add(ccEntry);
         orderPane.add(confirm);
         orderPane.add(cancel);
@@ -67,9 +73,27 @@ class McPatternsGUI extends JFrame {
         // TODO: Ask the presenter for the buttons to create. Iterate over the buttons and create them
 //        buttonPanel.add(new JButton("Replace with actual Menu Items"));
 //        buttonPanel.add(new JButton("test test"));
+
+        ActionListener menuItemPressed = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    presenter.addItem(e.getActionCommand());
+                    ccEntry.setText(presenter.getDisplayFormat());
+
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            }
+        };
         for (Item i: order.getItems()){
-            buttonPanel.add(new JButton(i.getName()));
+            JButton menuItem = new JButton(i.getName());
+            buttonPanel.add(menuItem);
+            menuItem.addActionListener(menuItemPressed);
         }
+
+
+
 
         theFrame.add(title,BorderLayout.NORTH);
         theFrame.add(buttonPanel, BorderLayout.CENTER);

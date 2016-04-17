@@ -21,4 +21,13 @@ public class MenuItems {
     public ArrayList<Item> getMenuItems(){
         return menuItems;
     }
+
+    public Item getItemFromName(String s){
+        for (int i = 0; i < menuItems.size(); i++){
+            if (menuItems.get(i).getName() == s){
+                return menuItems.get(i);
+            }
+        }
+            return null;
+    }
 }
