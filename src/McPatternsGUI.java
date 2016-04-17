@@ -66,6 +66,7 @@ class McPatternsGUI extends JFrame {
 
 
 
+
         theFrame.pack();
         theFrame.setVisible(true);
 
