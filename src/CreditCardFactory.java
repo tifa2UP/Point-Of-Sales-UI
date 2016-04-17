@@ -1,12 +1,12 @@
+import java.math.BigInteger;
+
 /**
  * Created by Abdellatif on 4/16/2016.
  */
 public class CreditCardFactory {
 
-    public CreditCardFactory() {
-    }
 
-    public CreditCard getCreditCard(long cardNumber){
+    public static CreditCard getCreditCard(BigInteger cardNumber){
         String cardNumberString = cardNumber + "";
         if (cardNumberString.length() < 2){
             System.out.println("The credit card you've entered is too short!!!");

@@ -1,3 +1,5 @@
+import java.math.BigInteger;
+
 /**
  * Created by Abdellatif on 4/15/2016.
  */
@@ -17,9 +19,12 @@ public class TerminalTester {
         order.addItemToOrder(coffee);
         order.addItemToOrder(coffee);
         System.out.println(order.computePrice());
+
+        BigInteger creditCardNumber = new BigInteger("4012888888881881");
+       CreditCard test = CreditCardFactory.getCreditCard(creditCardNumber);
+        test.swipe();
     }
 
-    CreditCardFactory test = new CreditCardFactory();
-    
+
 
 }
