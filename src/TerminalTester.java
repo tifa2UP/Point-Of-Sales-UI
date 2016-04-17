@@ -13,11 +13,11 @@ public class TerminalTester {
 
         Order order = Order.getInstance();
         order.createOrder(itemsList);
-        order.addItemToOrder(tea);
-        order.addItemToOrder(coffee);
-        order.addItemToOrder(coffee);
-        order.addItemToOrder(coffee);
-        order.addItemToOrder(coffee);
+//        order.addItemToOrder(tea);
+//        order.addItemToOrder(coffee);
+//        order.addItemToOrder(coffee);
+//        order.addItemToOrder(coffee);
+//        order.addItemToOrder(coffee);
         System.out.println(order.computePrice());
 
         BigInteger creditCardNumber = new BigInteger("4012888888881881");

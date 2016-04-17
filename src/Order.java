@@ -40,8 +40,23 @@ class Order {
             int itemPrice = (int) pair.getValue();
             price += (item.getPrice())*(itemPrice);
         }
-//        System.out.println(price);
         return price;
+    }
+
+    public HashMap<Item, Integer> getCurrentOrder() {
+        return currentOrder;
+    }
+
+    public void setCurrentOrder(HashMap<Item, Integer> currentOrder) {
+        this.currentOrder = currentOrder;
+    }
+
+    public boolean isInstantiated() {
+        return isInstantiated;
+    }
+
+    public void setInstantiated(boolean instantiated) {
+        isInstantiated = instantiated;
     }
 
     public void clearOrder(){
@@ -55,4 +70,17 @@ class Order {
     public boolean checkoutOrder(){
         return false;
     }
+
+    public Item[] getItems(){
+        Item[] items = new Item[currentOrder.size()];
+        Iterator it = currentOrder.entrySet().iterator();
+        int itemIndex = 0;
+        while (it.hasNext()) {
+            HashMap.Entry pair = (Map.Entry) it.next();
+            items[itemIndex] = (Item) pair.getKey();
+            itemIndex++;
+        }
+        return items;
+    }
+
 }

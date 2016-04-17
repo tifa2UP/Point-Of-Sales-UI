@@ -1,15 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 class McPatternsGUI extends JFrame {
     McPatternsPresenter presenter;
+    Order order;
 
     public McPatternsGUI(McPatternsPresenter presenter) {
 
         this.presenter = presenter;
         presenter.attachView(this);
+        order = presenter.getOrder();
         showGUI();
+
 
     }
     private void showGUI() {
@@ -57,7 +63,11 @@ class McPatternsGUI extends JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
         // TODO: Ask the presenter for the buttons to create. Iterate over the buttons and create them
-        buttonPanel.add(new JButton("Replace with actual Menu Items"));
+//        buttonPanel.add(new JButton("Replace with actual Menu Items"));
+//        buttonPanel.add(new JButton("test test"));
+        for (Item i: order.getItems()){
+            buttonPanel.add(new JButton(i.getName()));
+        }
 
         theFrame.add(title,BorderLayout.NORTH);
         theFrame.add(buttonPanel, BorderLayout.CENTER);
