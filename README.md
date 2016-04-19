@@ -40,4 +40,10 @@
     <li>Only 3 Credit Card types are currently supported: Visa, American Express and MasterCard</li>
 </ul>
 
+<h2>UML Diagram:</h2>
+<p> Here's a UML Diagram showing <i>only</i> the inheritance, instance variables and constructors of the project</p>
+<img src="UML Diagram.png" alt="UML Diagram">
+
+
+
 
