@@ -3,7 +3,7 @@
 <!--<img src="http://www.stirling-payments.com/images/Harbortouch.jpg" alt="Point of sales image" style="width: 350px; height: 250px; alignment: center">-->
 
 <h3><i>Point of Sales</i> is a Java Swing application that imitates a checkout counter at most shops</h3>
-<h4>**The code is not commented because I was short on time and had to finish the project in a hackathon mode!**</h4>
+<h4>**I was short on time and had to finish the project in a hackathon mode so the code isn't commented**</h4>
 <h2>Design Decisions: </h2>
 <ul>
     <li>Made the <i>Order</i> Class a singleton since only one order can be active at any instance</li>
